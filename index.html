@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>คำนวนน้ำหนักสินค้า</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300&display=swap" rel="stylesheet">
+	
+</head>
+<body>
+	<h1>คำนวนน้ำหนักสินค้า</h1>
+	<form>
+	<div class="parent">
+  <div class="div1">
+    <label for="item1">ดีท็อกซ์(กล่อง) น้ำหนัก:</label>
+    <input type="number" id="item1" name="item1" value="133" readonly> กรัม
+    <input type="number" id="item1-qty" name="item1-qty" min="0" value="0">หน่วย
+  </div>
+
+  <div class="div2">
+    <label for="item2">วิตซี(กล่องส้ม) น้ำหนัก:</label>
+    <input type="number" id="item2" name="item2" value="102" readonly> กรัม
+    <input type="number" id="item2-qty" name="item2-qty" min="0" value="0">หน่วย
+  </div>
+
+  <div class="div3">
+    <label for="item3">บีโยริเอส(กล่อง) น้ำหนัก:</label>
+    <input type="number" id="item3" name="item3" value="28" readonly> กรัม
+    <input type="number" id="item3-qty" name="item3-qty" min="0" value="0">หน่วย
+  </div>
+
+  <div class="div4">
+    <label for="item4">น้ำชง(กล่อง) น้ำหนัก:</label>
+    <input type="number" id="item4" name="item4" value="104" readonly> กรัม
+    <input type="number" id="item4-qty" name="item4-qty" min="0" value="0">หน่วย
+  </div>
+
+  <div class="div5">
+    <label for="item5">บิวท์อิน(กล่อง) น้ำหนัก:</label>
+    <input type="number" id="item5" name="item5" value="42" readonly> กรัม
+    <input type="number" id="item5-qty" name="item5-qty" min="0" value="0">หน่วย
+  </div>
+	
+	<input type="button" value="คำนวนน้ำหนักทั้งหมด" onclick="calculateWeight()">
+	
+  <div>
+    <label for="totalWeight">น้ำหนักทั้งหมด (โดยประมาณ):</label>
+    <input type="number" id="totalWeight" name="totalWeight" readonly> กรัม
+  </div>
+</div>
+
+</form>
+
+
+	<script>
+		function calculateWeight() {
+			var item1Weight = parseFloat(document.getElementById("item1").value);
+			var item2Weight = parseFloat(document.getElementById("item2").value);
+			var item3Weight = parseFloat(document.getElementById("item3").value);
+			var item4Weight = parseFloat(document.getElementById("item4").value);
+			var item5Weight = parseFloat(document.getElementById("item5").value);
+
+			var item1Qty = parseInt(document.getElementById("item1-qty").value);
+			var item2Qty = parseInt(document.getElementById("item2-qty").value);
+			var item3Qty = parseInt(document.getElementById("item3-qty").value);
+			var item4Qty = parseInt(document.getElementById("item4-qty").value);
+			var item5Qty = parseInt(document.getElementById("item5-qty").value);
+
+			var totalWeight = (item1Weight * item1Qty) + (item2Weight * item2Qty) + (item3Weight * item3Qty) + (item4Weight * item4Qty) + (item5Weight * item5Qty);
+
+			document.getElementById("totalWeight").value = totalWeight.toFixed(2);
+		}
+	</script>
+</body>
+</html>
